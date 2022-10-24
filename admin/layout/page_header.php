@@ -249,7 +249,7 @@
             <li><i data-feather="mail"></i><span>Inbox</span></li>
             <li><i data-feather="file-text"></i><span>Taskboard</span></li>
             <li><i data-feather="settings"></i><span>Settings</span></li>
-            <li><a href="../../../ecom/admin/pages/sign_in.php"><i data-feather="log-in"></i><span>Log in</span></a></li>
+            <li><a href="../../../ecom/admin/layout/sign_in.php"><i data-feather="log-in"></i><span>Log in</span></a></li>
           </ul>
         </li>
       </ul>

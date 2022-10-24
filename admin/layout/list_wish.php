@@ -1,24 +1,10 @@
-<?php 
-// session_destroy();
-    if(isset($_REQUEST['ac']) && $_REQUEST['ac'] == 'remove_order') {
-        // for($i=0; $i<count($_SESSION['chart']); $i++) {
-            
-        // }
-        unset($_SESSION['chart'][$_REQUEST['index']]);
-        $_SESSION['chart'] = array_values($_SESSION['chart']);
-        var_dump($_SESSION['chart']);
-    } else {
-
-    }
-?>
-
 <div class="page-body">
     <div class="container-fluid">
         <div class="page-header">
             <div class="row">
                 <div class="col-6">
                     <div class="page-header-left">
-                        <h3>Cart</h3>
+                        <h3>Wishlist</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item">Ecommerce</li>
@@ -67,9 +53,9 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Cart</h5>
+                        <h5>Wishlist</h5>
                     </div>
-                    <div class="card-body cart">
+                    <div class="card-body">
                         <div class="order-history table-responsive wishlist">
                             <table class="table table-bordernone">
                                 <thead>
@@ -77,54 +63,42 @@
                                         <th>Prdouct</th>
                                         <th>Prdouct Name</th>
                                         <th>Price</th>
-                                        <th>Quantity</th>
+                                        <th>Availability</th>
                                         <th>Action</th>
-                                        <th>Total</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                <?php 
-                                    $total = 0;
-                                    for($i=0; $i<count($_SESSION['chart']); $i++){
-                                    $query = $conn->query("SELECT * FROM tb_product WHERE pro_id = '".$_SESSION['chart'][$i]->pro_id."' ");
-                                    $fet = $query->fetch_object();
-                                    $total_price = ($fet->pro_price*$_SESSION['chart'][$i]->amount);
-                                ?>
-                                  
+                                    <tr class="title-orders">
+                                        <td colspan="12">New Orders</td>
+                                    </tr>
                                     <tr>
-                                        <td><img class="img-fluid img-60" src="images/product/1.png" alt="#"></td>
+                                        <td><img class="img-fluid img-60" src="../assets/images/product/1.png" alt="#"></td>
                                         <td>
-                                            <div class="product-name"><a href="#"><?php echo $fet->pro_name ?></a></div>
+                                            <div class="product-name"><a href="#">Long Top</a></div>
                                         </td>
-                                        <td>$ <?php echo number_format($fet->pro_price,2) ?></td>
+                                        <td>$21</td>
+                                        <td>In Stock</td>
+                                        <td><i data-feather="x-circle"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="img-fluid img-60" src="../assets/images/product/13.png" alt="#"></td>
                                         <td>
-                                            <fieldset class="qty-box">
-                                                <div class="input-group">
-                                                    <input class="touchspin text-center" type="text" value="<?php echo $_SESSION['chart'][$i]->amount; ?>">
-                                                </div>
-                                            </fieldset>
+                                            <div class="product-name"><a href="#">Fancy watch</a></div>
                                         </td>
-                                        <td><a href="index.php?p=cart&ac=remove_order&index=<?php echo $i; ?>"> <i data-feather="x-circle"> </i></a></td>
-                                        <td><?php echo number_format($total_price,2); ?></span></td>
-                                    </tr>
-                                    
-                                <?php
-                                    $total += $total_price;
-                                } ?>
-
-                                    <tr>
-                                        <td class="total-amount" colspan="5">
-                                            <h6 class="m-0"> <span class="f-w-600">Total Price:</span></h6>
-                                        </td>
-                                        <td><span><?php echo number_format($total,2); ?></span></td>
+                                        <td>$50</td>
+                                        <td>In Stock</td>
+                                        <td><i data-feather="x-circle"></i></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5"><a class="btn btn-primary cart-btn-transform" href="#">continue shopping</a></td>
-                                        <td><a class="btn btn-primary cart-btn-transform" href="#">check out</a></td>
+                                        <td><img class="img-fluid img-60" src="../assets/images/product/4.png" alt="#"></td>
+                                        <td>
+                                            <div class="product-name"><a href="#">Man shoes</a></div>
+                                        </td>
+                                        <td>$11</td>
+                                        <td>In Stock</td>
+                                        <td><i data-feather="x-circle"></i></td>
                                     </tr>
-
-</tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>

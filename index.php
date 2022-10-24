@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    include("connect.php");
+    if(!isset($_SESSION['chart'])){
+        $_SESSION['chart'] = array();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

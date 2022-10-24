@@ -1,11 +1,11 @@
 <header class="main-nav" >
     <div class="logo-wrapper">
-        <a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="" /><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="" /></a>
+        <a href="index.php?p=dashboard"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="" /><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="" /></a>
         <div class="back-btn"><i class="fa fa-angle-left"></i></div>
         <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"> </i></div>
     </div>
     <div class="logo-icon-wrapper">
-        <a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="" /></a>
+        <a href="index.php?p=dashboard"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="" /></a>
     </div>
     <nav>
   
@@ -15,7 +15,7 @@
             <div id="mainnav">
                 <ul class="nav-menu custom-scrollbar">
                     <li class="back-btn">
-                        <a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="" /></a>
+                        <a href="index.php?p=dashboard"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="" /></a>
                         <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                     </li>
                     <li class="sidebar-title">
@@ -26,15 +26,25 @@
                         </div>
                     </li>
                     <li class="dropdown" >
-                        <a class="nav-link menu-title link-nav" href="#" data-original-title="" title=""><i data-feather="home"></i><span class="lan-3"> Dashboard</span> <label class="badge badge-success">2</label></a>
+                        <a class="nav-link menu-title link-nav" href="index.php?p=dashboard" data-original-title="" title=""><i data-feather="home"></i><span class="lan-3"> Dashboard</span> <label class="badge badge-success">2</label></a>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title link-nav" href="kanban.html">
-                            <i data-feather="monitor"> </i><span>kanban Board <label class="badge badge-primary">Latest</label></span>
+                        <a class="nav-link menu-title link-nav" href="index.php?p=order_amount">
+                            <i data-feather="monitor"> </i><span>Order amount <label class="badge badge-primary">Latest</label></span>
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title" href="#"><i data-feather="airplay"></i><span class="lan-6">Widgets</span></a>
+                        <a class="nav-link menu-title link-nav" href="index.php?p=list_wish">
+                            <i data-feather="monitor"> </i><span>List wish <label class="badge badge-primary">Latest</label></span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title link-nav" href="index.php?p=list_products">
+                            <i data-feather="monitor"> </i><span>Edit product </span>
+                        </a>
+                    </li>
+                    <!-- <li class="dropdown">
+                        <a class="nav-link menu-title" href="#"><i data-feather="airplay"></i><span class="lan-6">Payment amount</span></a>
                         <ul class="nav-submenu menu-content">
                             <li><a href="general-widget.html">General</a></li>
                             <li><a href="chart-widget.html">Chart</a></li>
@@ -51,7 +61,7 @@
                             <li><a href="footer-dark.html">Footer Dark</a></li>
                             <li><a href="footer-fixed.html">Footer Fixed</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="sidebar-title">
                         <div>
                             <h6 class="lan-8">About users</h6>

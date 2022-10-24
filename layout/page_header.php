@@ -1,3 +1,17 @@
+<?php 
+// session_destroy();
+    if(isset($_REQUEST['ac']) && $_REQUEST['ac'] == 'remove_order') {
+        // for($i=0; $i<count($_SESSION['chart']); $i++) {
+            
+        // }
+        unset($_SESSION['chart'][$_REQUEST['index']]);
+        $_SESSION['chart'] = array_values($_SESSION['chart']);
+        var_dump($_SESSION['chart']);
+    } else {
+
+    }
+?>
+
 <div class="page-main-header" >
   <div class="main-header-right row m-0">
     <form class="form-inline search-full" action="#" method="get">
@@ -156,22 +170,41 @@
           <div class="mode"><i class="fa fa-moon-o"></i></div>
         </li>
         <li class="cart-nav onhover-dropdown">
-          <div class="cart-box"><a href="index.php?p=cart"> <i data-feather="shopping-cart"></i><span class="badge badge-pill badge-primary">2</span></a></div>
+          <div class="cart-box"><a href="index.php?p=cart"> <i data-feather="shopping-cart"></i><span class="badge badge-pill badge-primary"><?php echo count($_SESSION['chart']); ?></span></a></div>
           <ul class="cart-dropdown chat-dropdown onhover-show-div">
             <li class="bg-primary text-center">
               <h6 class="f-18">Shoping cart</h6>
               <p class="mb-0">You have 3 items in your cart </p>
             </li>
+                                <?php 
+                                    $total = 0;
+                                    for($i=0; $i<count($_SESSION['chart']); $i++){
+                                    $query = $conn->query("SELECT * FROM tb_product WHERE pro_id = '".$_SESSION['chart'][$i]->pro_id."' ");
+                                    $fet = $query->fetch_object();
+                                    $total_price = ($fet->pro_price*$_SESSION['chart'][$i]->amount);
+                                ?>
+
+                                
             <li class="mt-0">
               <div class="media"><img class="img-fluid rounded-circle mr-3 img-60" src="assets/images/ecommerce/01.jpg" alt="">
-                <div class="media-body"><span>Boy's T-shirt</span>
-                  <p>It is a long established fact that a reader</p>
-                  <h6 class="f-12 light-font">1 x $ 299.00</h6>
+                <div class="media-body"><span><?php echo $fet->pro_name ?></span>
+                  <p><?php
+                        if (strlen($fet->pro_detail) > 20) {
+                          echo substr($fet->pro_detail, 0, 20) . " ...";
+                        } else {
+                          echo $fet->pro_detail;
+                        }
+                      ?>
+                  </p>
+                  <h6 class="f-12 light-font"><?php echo $_SESSION['chart'][$i]->amount; ?> x $ <?php echo number_format($fet->pro_price,2) ?></h6>
                 </div>
-                <div class="close-circle"><a href="#"><i data-feather="x"></i></a></div>
+                <div class="close-circle"><a href="index.php?p=cart&ac=remove_order&index=<?php echo $i; ?>"><i data-feather="x"></i></a></div>
               </div>
             </li>
-            <li>
+                                <?php
+                                    $total += $total_price;
+                                } ?>
+            <!-- <li>
               <div class="media"><img class="img-fluid rounded-circle mr-3 img-60" src="assets/images/ecommerce/02.jpg" alt="">
                 <div class="media-body"><span>Girls's T-shirt</span>
                   <p>It is a long established fact that a reader</p>
@@ -189,7 +222,7 @@
                 <div class="close-circle"><a href="#"><i data-feather="x"></i></a></div>
               </div>
             </li>
-            <li>
+            <li> -->
               <div class="total">
                 <h6 class="mb-0 mt-1">Subtotal : <span class="f-right">$799.00</span></h6>
               </div>
@@ -249,7 +282,7 @@
             <!-- <li><i data-feather="mail"></i><span>Inbox</span></li>
             <li><i data-feather="file-text"></i><span>Taskboard</span></li> -->
             <li><i data-feather="settings"></i><a href="index.php?p=edit_profile"><span >Edit Profile</span></a></li>
-            <li><i data-feather="log-in"></i><a href="../ecom/admin/pages/sign_in.php"><span>Log in</span></a></li>
+            <li><i data-feather="log-in"></i><a href="../ecom/admin/layout/sign_in.php"><span>Log in</span></a></li>
           </ul>
         </li>
       </ul>

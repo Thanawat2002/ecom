@@ -1,3 +1,30 @@
+<?php
+    // session_destroy();
+    if(isset($_REQUEST['ac']) && $_REQUEST['ac'] == 'addchart'){
+        // $_SESSION['chart'];
+        $status = true;
+       
+        for($i=0; $i < count($_SESSION['chart']); $i++) {
+            if($_SESSION['chart'][$i]->pro_id == $_REQUEST['pro_id']){
+                $status = false;
+            }
+           
+        }
+
+        if($status){
+            $object = (object) [
+                'pro_id' => $_REQUEST['pro_id'],
+                'amount' => $_REQUEST['amount'],
+              ];
+            array_push($_SESSION['chart'], $object);
+        }
+   
+    }
+
+
+?>
+
+
 <div class="page-body">
     <div class="container-fluid">
         <div class="page-header">
@@ -6,7 +33,7 @@
                     <h3>Product Page</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">ECommerce</li>
+                        <li class="breadcrumb-item">ECommerce </li>
                     </ol>
                 </div>
                 <div class="col-6">
@@ -86,7 +113,7 @@
                             <i style="color:blanchedalmond" class="fa fa-star"></i>
                             <i style="color:blanchedalmond" class="fa fa-star"></i>
                             <i style="color:blanchedalmond" class="fa fa-star"></i>
-                            
+
                             <i style="color:blanchedalmond" class="fa fa-star"></i>
                             <span>(250 review)</span>
                         </div>
@@ -120,8 +147,15 @@
                         <li class="bg-info"></li>
                         <li class="bg-warning"></li>
                     </ul>
+                    <?php
+
+                        $sql = $conn->query("SELECT * FROM tb_product WHERE pro_id ='". $_REQUEST["pro_id"]."'");
+                        $fet = $sql->fetch_object();
+
+                    ?>
+
                     <div class="m-t-15">
-                        <button class="btn btn-primary-gradien m-r-10" type="button" data-original-title="btn btn-info-gradien" title="">Add To Cart</button>
+                        <button class="btn btn-primary-gradien m-r-10" type="button" data-original-title="btn btn-info-gradien" title=""><a href="index.php?p=product_page&pro_id=<?php echo $_REQUEST['pro_id'] ?>&amount=1&ac=addchart">Add To Cart</a></button>
                         <button class="btn btn-secondary-gradien m-r-10" type="button" data-original-title="btn btn-info-gradien" title="">Quick View</button>
                         <button class="btn btn-success-gradien" type="button" data-original-title="btn btn-info-gradien" title="">Buy Now</button>
                     </div>

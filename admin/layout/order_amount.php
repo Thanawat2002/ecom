@@ -1,29 +1,13 @@
-<?php 
-// session_destroy();
-    if(isset($_REQUEST['ac']) && $_REQUEST['ac'] == 'remove_order') {
-        // for($i=0; $i<count($_SESSION['chart']); $i++) {
-            
-        // }
-        unset($_SESSION['chart'][$_REQUEST['index']]);
-        $_SESSION['chart'] = array_values($_SESSION['chart']);
-        var_dump($_SESSION['chart']);
-    } else {
-
-    }
-?>
-
 <div class="page-body">
     <div class="container-fluid">
         <div class="page-header">
             <div class="row">
                 <div class="col-6">
-                    <div class="page-header-left">
-                        <h3>Cart</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item">Ecommerce</li>
-                        </ol>
-                    </div>
+                    <h3>Product list</h3>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item">ECommerce</li>
+                    </ol>
                 </div>
                 <div class="col-6">
                     <!-- Bookmark Start-->
@@ -64,72 +48,55 @@
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
+            <!-- Individual column searching (text inputs) Starts-->
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Cart</h5>
-                    </div>
-                    <div class="card-body cart">
-                        <div class="order-history table-responsive wishlist">
-                            <table class="table table-bordernone">
+                    <!-- <div class="card-header">
+                        <h5>Individual column searching (text inputs) </h5><span>The searching functionality provided by DataTables is useful for quickly search through the information in the table - however the search is global, and you may wish to present controls that search on specific columns.</span>
+                    </div> -->
+                    <div class="card-body">
+                        <div class="table-responsive product-table">
+                            <table class="display" id="basic-1">
                                 <thead>
                                     <tr>
-                                        <th>Prdouct</th>
-                                        <th>Prdouct Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Action</th>
-                                        <th>Total</th>
+                                        <th>เลขที่คำสั่งซื้อ</th>
+                                        <th>ชื่อผู้ซื้อ</th>
+                                        <th>ที่อยู่</th>
+                                        <th>เบอร์โทร</th>
+                                        <th>ราคา</th>
+                                        <th>การชำระเงิน</th>
+                                        <th>ตรวจสอบการสั่งซื้อ</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                <?php 
-                                    $total = 0;
-                                    for($i=0; $i<count($_SESSION['chart']); $i++){
-                                    $query = $conn->query("SELECT * FROM tb_product WHERE pro_id = '".$_SESSION['chart'][$i]->pro_id."' ");
-                                    $fet = $query->fetch_object();
-                                    $total_price = ($fet->pro_price*$_SESSION['chart'][$i]->amount);
-                                ?>
-                                  
+                                    <?php
+                                    // $sql = $conn->query("SELECT * FROM tb_categoty");
+                                    // while ($fet = $sql->fetch_object()) {
+                                    ?>
+
                                     <tr>
-                                        <td><img class="img-fluid img-60" src="images/product/1.png" alt="#"></td>
+                                        <!-- <td><img src="../assets/images/ecommerce/product-table-1.png" alt=""></td> -->
+                                        <td>1</td>
+                                        <td><h6> ธนาวัตร ยอดทรง </h6></td>
+                                        <td><span>32/5 หมู่ 21 อ.เมือง จ.ปราจีนบุรี 25230</span></td>
+                                        <td>0912345678</td>
+                                        <td>$10</td>
+                                        <td>รอการชำระเงิน</td>
                                         <td>
-                                            <div class="product-name"><a href="#"><?php echo $fet->pro_name ?></a></div>
+                                            <a class="btn btn-success mr-3" href="index.php?p=edit_product">จัดการ</a>
                                         </td>
-                                        <td>$ <?php echo number_format($fet->pro_price,2) ?></td>
-                                        <td>
-                                            <fieldset class="qty-box">
-                                                <div class="input-group">
-                                                    <input class="touchspin text-center" type="text" value="<?php echo $_SESSION['chart'][$i]->amount; ?>">
-                                                </div>
-                                            </fieldset>
-                                        </td>
-                                        <td><a href="index.php?p=cart&ac=remove_order&index=<?php echo $i; ?>"> <i data-feather="x-circle"> </i></a></td>
-                                        <td><?php echo number_format($total_price,2); ?></span></td>
                                     </tr>
                                     
-                                <?php
-                                    $total += $total_price;
-                                } ?>
-
-                                    <tr>
-                                        <td class="total-amount" colspan="5">
-                                            <h6 class="m-0"> <span class="f-w-600">Total Price:</span></h6>
-                                        </td>
-                                        <td><span><?php echo number_format($total,2); ?></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5"><a class="btn btn-primary cart-btn-transform" href="#">continue shopping</a></td>
-                                        <td><a class="btn btn-primary cart-btn-transform" href="#">check out</a></td>
-                                    </tr>
-
-</tbody>
+                                    <?php
+                                    // } 
+                                    ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Individual column searching (text inputs) Ends-->
         </div>
     </div>
     <!-- Container-fluid Ends-->

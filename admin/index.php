@@ -27,8 +27,11 @@
     <!-- Plugins css start-->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/chartist.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/datatables.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/owlcarousel.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/rating.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/dropzone.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
@@ -130,6 +133,20 @@
     <script src="../assets/js/sidebar-menu.js"></script>
     <script src="../assets/js/config.js"></script>
     <!-- Plugins JS start-->
+    <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <script src="../assets/js/dropzone/dropzone.js"></script>
+    <script src="../assets/js/dropzone/dropzone-script.js"></script>
+    <script src="../assets/js/typeahead/handlebars.js"></script>
+    <script src="../assets/js/typeahead/typeahead.bundle.js"></script>
+    <script src="../assets/js/typeahead/typeahead.custom.js"></script>
+    <script src="../assets/js/typeahead-search/handlebars.js"></script>
+    <script src="../assets/js/typeahead-search/typeahead-custom.js"></script>
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/rating/jquery.barrating.js"></script>
+    <script src="../assets/js/rating/rating-script.js"></script>
+    <script src="../assets/js/product-list-custom.js"></script>
     <script src="../assets/js/chart/chartist/chartist.js"></script>
     <script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
     <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
@@ -141,6 +158,7 @@
     <script src="../assets/js/counter/counter-custom.js"></script>
     <script src="../assets/js/custom-card/custom-card.js"></script>
     <script src="../assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="../assets/js/ecommerce.js"></script>
     <script src="../assets/js/dashboard/dashboard_2.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
     <!-- Plugins JS Ends-->
