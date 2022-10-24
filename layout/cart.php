@@ -93,7 +93,7 @@
                                 ?>
                                   
                                     <tr>
-                                        <td><img class="img-fluid img-60" src="images/product/1.png" alt="#"></td>
+                                        <td><img class="img-fluid img-60" src="images/product/<?php echo $fet->pro_pic ?>" alt="#"></td>
                                         <td>
                                             <div class="product-name"><a href="#"><?php echo $fet->pro_name ?></a></div>
                                         </td>

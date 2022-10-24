@@ -186,7 +186,7 @@
 
                                 
             <li class="mt-0">
-              <div class="media"><img class="img-fluid rounded-circle mr-3 img-60" src="assets/images/ecommerce/01.jpg" alt="">
+              <div class="media"><img class="img-fluid rounded-circle mr-3 img-60" src="assets/images/ecommerce/<?php echo $fet->pro_pic ?>" alt="">
                 <div class="media-body"><span><?php echo $fet->pro_name ?></span>
                   <p><?php
                         if (strlen($fet->pro_detail) > 20) {
